@@ -1,0 +1,46 @@
+language: en
+reviews:
+  profile: assertive
+  request_changes_workflow: false
+  high_level_summary: true
+  poem: false
+  review_status: true
+  collapse_walkthrough: false
+  path_instructions:
+    - path: '**/*.cpp'
+      instructions: >-
+        Review the C++ code thoroughly. Focus on:
+        1. Algorithm correctness and logic errors
+        2. Performance and time/space complexity
+        3. Memory safety and potential memory leaks
+        4. Modern C++ best practices (C++11/14/17/20)
+        5. Edge cases and boundary conditions
+        6. Code clarity and maintainability
+        7. Potential optimizations
+    - path: '**/*.h'
+      instructions: >-
+        Review C++ header files for proper include guards, declarations,
+        and interface design.
+    - path: '**/*.hpp'
+      instructions: >-
+        Review C++ header files for proper include guards, template implementations,
+        and interface design.
+  tools:
+    shellcheck:
+      enabled: true
+    markdownlint:
+      enabled: true
+    github-checks:
+      enabled: true
+      timeout_ms: 90000
+  auto_review:
+    enabled: true
+    ignore_title_keywords:
+      - WIP
+      - DO NOT REVIEW
+    drafts: false
+    base_branches:
+      - master
+      - main
+chat:
+  auto_reply: true
